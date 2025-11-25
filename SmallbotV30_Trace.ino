@@ -67,11 +67,11 @@ void loop() {
   sliderval = analogRead(SLIDER);
   photoval = analogRead(PHOTO);
   lcd.setCursor(0,0);		// X,Yで位置指定
-  lcd.print("SLIDER=    ");
+  lcd.print("SLIDER=     ");
   lcd.setCursor(8,0);		// X,Yで位置指定
   lcd.print(sliderval);
   lcd.setCursor(0,1);		// X,Yで位置指定
-  lcd.print("PHOTO =    ");
+  lcd.print("PHOTO =     ");
   lcd.setCursor(8,1);		// X,Yで位置指定
   lcd.print(photoval);
   if (photoval > sliderval) {
@@ -85,3 +85,4 @@ void loop() {
   }
   delay(100);  // 0.1秒くらいはそのまま進む
 }
+
