@@ -117,8 +117,11 @@ void loop() {
     delayMicroseconds(5);
     digitalWrite(PING_PIN, LOW);
 
-    pinMode(PING_PIN, INPUT);                    // パルスが返ってくるのを待つ
-    duration = pulseIn(PING_PIN, HIGH);
+    pinMode(PING_PIN, INPUT);  // パルスが返ってくるのを待つ
+    duration = pulseIn(PING_PIN, HIGH,10000);
+    if (duration == 0) {      // タイムアウト（10000μs）すると０になるので
+      duration = 10000;       // 最大値だったということにする
+    }
     cm = duration / 29 / 2;                      // 1cmあたり約29μs
     lcd.setCursor(0,0);		// X,Yで位置指定
     lcd.print("SLIDER=     ");
@@ -168,3 +171,4 @@ void loop() {
   }
   delay(1);
 }
+
